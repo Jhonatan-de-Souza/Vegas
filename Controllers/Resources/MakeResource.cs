@@ -5,6 +5,7 @@ using Vegas.Models;
 
 namespace Vegas.Controllers.Resources
 {
+    
     public class MakeResource
     {
         public int Id { get; set; }
