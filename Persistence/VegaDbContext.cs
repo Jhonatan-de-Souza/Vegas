@@ -7,6 +7,7 @@ namespace Vegas.Persistence
     {
        public DbSet<Make> Makes {get;set;}
        public DbSet<Features> Features {get;set;}
+       public DbSet<Vehicle> Vehicles { get; set; }
         public VegaDbContext(DbContextOptions <VegaDbContext> options)
         :base(options)
         {}
