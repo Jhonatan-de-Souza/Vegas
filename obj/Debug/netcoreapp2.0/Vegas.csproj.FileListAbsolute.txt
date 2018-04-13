@@ -1,0 +1,10 @@
+/home/annon/Projects/GitHub/Vegas/bin/Debug/netcoreapp2.0/Vegas.deps.json
+/home/annon/Projects/GitHub/Vegas/bin/Debug/netcoreapp2.0/Vegas.runtimeconfig.json
+/home/annon/Projects/GitHub/Vegas/bin/Debug/netcoreapp2.0/Vegas.runtimeconfig.dev.json
+/home/annon/Projects/GitHub/Vegas/bin/Debug/netcoreapp2.0/Vegas.dll
+/home/annon/Projects/GitHub/Vegas/bin/Debug/netcoreapp2.0/Vegas.pdb
+/home/annon/Projects/GitHub/Vegas/obj/Debug/netcoreapp2.0/Vegas.csproj.CoreCompileInputs.cache
+/home/annon/Projects/GitHub/Vegas/obj/Debug/netcoreapp2.0/Vegas.AssemblyInfoInputs.cache
+/home/annon/Projects/GitHub/Vegas/obj/Debug/netcoreapp2.0/Vegas.AssemblyInfo.cs
+/home/annon/Projects/GitHub/Vegas/obj/Debug/netcoreapp2.0/Vegas.dll
+/home/annon/Projects/GitHub/Vegas/obj/Debug/netcoreapp2.0/Vegas.pdb

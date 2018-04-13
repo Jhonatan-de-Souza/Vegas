@@ -24,10 +24,10 @@ namespace Vegas.Controllers
         {
             var vehicle = mapper.Map<VehicleResource, Vehicle>(vehicleResource);
             context.Vehicles.Add(vehicle);
-
             await context.SaveChangesAsync();
-            
-            return Ok(vehicle);
+
+            var result = mapper.Map<Vehicle, VehicleResource>(vehicle);
+            return Ok(result);
         }
     }
 }
