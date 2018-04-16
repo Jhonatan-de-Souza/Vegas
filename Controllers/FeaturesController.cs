@@ -21,9 +21,9 @@ namespace Vegas.Controllers
 
         }
         [HttpGet("/api/features")]
-        public async Task<IEnumerable<FeaturesResource>> GetFeaturesAsync() {
+        public async Task<IEnumerable<KeyValuePairResource>> GetFeaturesAsync() {
             var features = await context.Features.ToListAsync();
-            return mapper.Map<List<Features>,List<FeaturesResource>>(features);
+            return mapper.Map<List<Features>,List<KeyValuePairResource>>(features);
         }
     }
 }

@@ -11,18 +11,19 @@ namespace Vegas.Mapping
         public MappingProfile()
         {
             // Domain to API Resources
-            CreateMap<Make, MakeResource>();
-            CreateMap<Model, ModelResource>();
-            CreateMap<Features, FeaturesResource>();
+            CreateMap<Make,MakeResource>();
+            CreateMap<MakeResource,Make>();
+            CreateMap<Model, KeyValuePairResource>();
+            CreateMap<Features, KeyValuePairResource>();
             CreateMap<Vehicle, SaveVehicleResource>()
               .ForMember(vr => vr.Contact, opt => opt.MapFrom(v => new ContactResource { Name = v.ContactName, Email = v.ContactEmail, Phone = v.ContactPhone }))
               .ForMember(vr => vr.Features, opt => opt.MapFrom(v => v.Features.Select(vf => vf.FeatureId)));
             CreateMap<Vehicle,VehicleResource>()
             .ForMember(vr => vr.Make, opt => opt.MapFrom(v => v.Model.Make))
             .ForMember(vr => vr.Contact, opt => opt.MapFrom(v => new ContactResource { Name = v.ContactName, Email = v.ContactEmail, Phone = v.ContactPhone }))
-            .ForMember(vr => vr.Features, opt => opt.MapFrom(v => v.Features.Select(vf => new FeaturesResource { Id = vf.Feature.Id , Name = vf.Feature.Name})));
+            .ForMember(vr => vr.Features, opt => opt.MapFrom(v => v.Features.Select(vf => new KeyValuePairResource { Id = vf.Feature.Id , Name = vf.Feature.Name})));
 
-            // API Resources to Domain
+            // API Resources to Domain 
             // This is how you map objects when they have different nams
             CreateMap<SaveVehicleResource, Vehicle>()
             .ForMember(v => v.Id,opt => opt.Ignore())
