@@ -12,8 +12,18 @@ namespace Vegas.Persistence
             this.context = context;
 
         }
-        public async Task<Vehicle> GetVehicle(int id)
+        public void Add(Vehicle vehicle){
+            context.Vehicles.Add(vehicle);
+        }
+        public void Remove(Vehicle vehicle){
+            context.Remove(vehicle);
+        }
+        public async Task<Vehicle> GetVehicle(int id, bool includeRelated = true)
         {
+            if(! includeRelated){
+                return await context.Vehicles.FindAsync(id);
+            }
+
             return await context.Vehicles
             .Include(v => v.Features)
                 .ThenInclude(vf => vf.Feature)

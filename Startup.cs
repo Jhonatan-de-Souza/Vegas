@@ -27,6 +27,7 @@ namespace Vegas
         {
             services.AddAutoMapper();
             services.AddScoped<IVehicleRepository,VehicleRepository>();
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
             services.AddDbContext<VegaDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("Default")));
             services.AddMvc();
 
