@@ -26,8 +26,13 @@ namespace Vegas
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper();
+            services.AddScoped<IVehicleRepository,VehicleRepository>();
             services.AddDbContext<VegaDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("Default")));
             services.AddMvc();
+
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
