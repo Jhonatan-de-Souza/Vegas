@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Vegas.Models;
+using Vegas.Core;
+using Vegas.Core.Models;
 
 namespace Vegas.Persistence
 {

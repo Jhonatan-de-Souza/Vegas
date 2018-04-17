@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using Vegas.Models;
+using Vegas.Core.Models;
 
-namespace Vegas.Persistence
+namespace Vegas.Core
 {
     public interface IVehicleRepository
     {

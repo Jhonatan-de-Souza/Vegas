@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Vegas.Persistence
+namespace Vegas.Core
 {
     public interface IUnitOfWork
     {

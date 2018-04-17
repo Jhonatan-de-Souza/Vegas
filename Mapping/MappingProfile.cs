@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Vegas.Controllers.Resources;
-using Vegas.Models;
+using Vegas.Core.Models;
 
 namespace Vegas.Mapping
 {

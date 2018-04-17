@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Vegas.Persistence;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
+using Vegas.Core;
 
 namespace Vegas
 {

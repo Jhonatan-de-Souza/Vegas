@@ -1,3 +1,4 @@
+import { FetchDataComponent } from './../fetchdata/fetchdata.component';
 import { VehicleService } from './../../services/vehicle.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,8 +11,10 @@ export class VehicleFormComponent implements OnInit {
   
   makes: any[];
   models: any[];
-  vehicle:any = {};
   features:any[];
+  vehicle:any = {
+    features:[]
+  };
   constructor(private vehicleService:VehicleService) { }
 
   ngOnInit() {
@@ -19,7 +22,15 @@ export class VehicleFormComponent implements OnInit {
     this.vehicleService.getFeatures().subscribe(features => (this.features = features));
   }
   onMakeChange(){
-    var selectedMake = this.makes.find( m => m.id == this.vehicle.make)
+    var selectedMake = this.makes.find( m => m.id == this.vehicle.makeId)
     this.models = selectedMake.models;
+    delete this.vehicle.modelId;
+  }
+  onFeatureToggle(featureId,$event){
+    if($event.target.checked)
+    this.vehicle.features.push(featureId);
+    else{
+      var index = this.vehicle.features.indexOf(featureId);
+    }
   }
 }

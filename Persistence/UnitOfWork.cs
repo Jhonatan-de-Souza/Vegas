@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Vegas.Core;
 
 namespace Vegas.Persistence
 {

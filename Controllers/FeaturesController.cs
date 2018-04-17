@@ -5,7 +5,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Vegas.Controllers.Resources;
-using Vegas.Models;
+using Vegas.Core.Models;
 using Vegas.Persistence;
 
 namespace Vegas.Controllers

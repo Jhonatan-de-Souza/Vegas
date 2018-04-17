@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using Vegas.Models;
+using Vegas.Core.Models;
 
 namespace Vegas.Controllers.Resources
 {
