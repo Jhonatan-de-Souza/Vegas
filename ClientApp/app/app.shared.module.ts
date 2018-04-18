@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { AppErrorHandler } from './components/app/app.error-handle';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -37,6 +38,7 @@ import { VehicleService } from './services/vehicle.service';
     ])
   ],
   providers:[
+    {provide: ErrorHandler, useClass:AppErrorHandler},
     VehicleService
   ]
 })
