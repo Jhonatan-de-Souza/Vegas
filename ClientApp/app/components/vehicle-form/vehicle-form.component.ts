@@ -1,6 +1,7 @@
 import { FetchDataComponent } from './../fetchdata/fetchdata.component';
 import { VehicleService } from './../../services/vehicle.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'app-vehicle-form',
@@ -16,7 +17,9 @@ export class VehicleFormComponent implements OnInit {
   features:[],
   contact:{}
   };
-  constructor(private vehicleService:VehicleService) { }
+  constructor(
+    private vehicleService:VehicleService,
+    private toastyService: ToastyService) { }
 
   ngOnInit() {
     /*Initializing the properties from the respective services*/
@@ -43,6 +46,16 @@ export class VehicleFormComponent implements OnInit {
   /* here a create an event that will handle form submission */
   submit(){
     this.vehicleService.create(this.vehicle)
-    .subscribe(x => console.log(x));
+    .subscribe(
+      x => console.log(x),
+      err => {
+            this.toastyService.error({
+              title: 'Error title here',
+              msg: 'This is a new message',
+              theme: 'bootstrap',
+              showClose: true,
+              timeout:5000
+            });
+      });
   }
 }
