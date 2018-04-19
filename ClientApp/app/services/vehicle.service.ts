@@ -23,6 +23,10 @@ export class VehicleService {
   }
   update(vehicle:SaveVehicle){
     return this.http.put('/api/vehicles/' + vehicle.id,vehicle)
+    .map(res => res.json());
+  }
+  delete(id){
+    return this.http.delete('/api/vehicles/' + id)
       .map(res => res.json());
   }
 }
