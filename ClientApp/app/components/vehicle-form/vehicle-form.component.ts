@@ -56,8 +56,7 @@ export class VehicleFormComponent implements OnInit {
         this.makes = data[0];
         this.features = data[1];
 
-        if (this.vehicle.id) 
-        this.setVehicle(data[2]);
+        if (this.vehicle.id) this.setVehicle(data[2]);
         this.populateModels();
       },
       err => {
@@ -81,7 +80,6 @@ export class VehicleFormComponent implements OnInit {
     this.vehicle.features = _.pluck(v.features, "id");
   }
   onMakeChange() {
-    
     delete this.vehicle.modelId; /* removing previously selected item */
   }
   onFeatureToggle(featureId, $event) {
@@ -97,6 +95,18 @@ export class VehicleFormComponent implements OnInit {
   }
   /* here a create an event that will handle form submission */
   submit() {
-    this.vehicleService.create(this.vehicle).subscribe(x => console.log(x));
+    if (this.vehicle.id) {
+      this.vehicleService.update(this.vehicle).subscribe(x => {
+        this.toastyService.success({
+          title: "Success",
+          msg: "The vehicle was sucessfully updated.",
+          theme: "bootstrap",
+          showClose: true,
+          timeout: 5000
+        });
+      });
+    } else {
+      this.vehicleService.create(this.vehicle).subscribe(x => console.log(x));
+    }
   }
 }
