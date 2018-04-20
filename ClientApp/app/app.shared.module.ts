@@ -1,3 +1,5 @@
+import { FighterFormComponent } from './components/fighter-form/fighter-form.component';
+import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 import * as Raven from 'raven-js';
 import { AppErrorHandler } from './components/app/app.error-handle';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -25,7 +27,9 @@ import { VehicleService } from './services/vehicle.service';
     CounterComponent,
     FetchDataComponent,
     HomeComponent,
-    VehicleFormComponent
+    VehicleFormComponent,
+    VehicleListComponent,
+    FighterFormComponent
   ],
   imports: [
     CommonModule,
@@ -33,9 +37,11 @@ import { VehicleService } from './services/vehicle.service';
     HttpModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: "", redirectTo: "home", pathMatch: "full" },
+      { path: "", redirectTo: "vehicles", pathMatch: "full" },
       { path: "vehicles/new", component: VehicleFormComponent },
       { path: "vehicles/:id", component: VehicleFormComponent },
+      { path: "vehicles", component: VehicleListComponent },
+      { path: "fighters", component:FighterFormComponent },
       { path: "home", component: HomeComponent },
       { path: "counter", component: CounterComponent },
       { path: "fetch-data", component: FetchDataComponent },

@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +9,7 @@ using Vega.Controllers.Resources;
 using Vega.Core;
 using Vega.Core.Models;
 using Vega.Persistence;
+
 
 namespace Vega.Controllers
 {
@@ -85,6 +88,12 @@ namespace Vega.Controllers
 
             var vehicleResource = mapper.Map<Vehicle, VehicleResource>(vehicle);
             return Ok(vehicleResource);
+        }
+        [HttpGet]
+        public async Task<IEnumerable<VehicleResource>> GetVehicleAsync(){
+            var VehiclesController =  await repository.GetVehiclesAsync();
+
+            return mapper.Map<IEnumerable<Vehicle>,IEnumerable<VehicleResource>>(VehiclesController);
         }
     }
 }

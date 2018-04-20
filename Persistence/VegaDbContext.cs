@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Vega.Core.Models;
+using Vegas.Core.Models;
 
 namespace Vega.Persistence
 {
@@ -8,6 +9,7 @@ namespace Vega.Persistence
        public DbSet<Make> Makes {get;set;}
        public DbSet<Features> Features {get;set;}
        public DbSet<Vehicle> Vehicles { get; set; }
+       public DbSet<Fighter> Fighters { get; set; }
         public VegaDbContext(DbContextOptions <VegaDbContext> options)
         :base(options)
         {}

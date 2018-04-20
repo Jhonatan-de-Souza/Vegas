@@ -11,6 +11,8 @@ using Vega.Persistence;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using Vega.Core;
+using Vegas.Persistence;
+using Vegas.Core.Models;
 
 namespace Vega
 {
@@ -28,6 +30,7 @@ namespace Vega
         {
             services.AddAutoMapper();
             services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IFighterRepository,FighterRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddDbContext<VegaDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("Default")));
             services.AddMvc();
