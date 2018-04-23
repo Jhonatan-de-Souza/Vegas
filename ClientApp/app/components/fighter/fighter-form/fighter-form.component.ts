@@ -1,3 +1,4 @@
+import { fighter, skills } from './../../../models/fighter';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fighter-form.component.css']
 })
 export class FighterFormComponent implements OnInit {
-
-  constructor() { }
+fighter:fighter ={
+  id:0,
+  name:"",
+  power:0,
+  speed:0,
+  skills:[]
+};
+  constructor() {
+    
+   }
 
   ngOnInit() {
   }

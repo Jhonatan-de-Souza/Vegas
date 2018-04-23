@@ -1,0 +1,25 @@
+<form #f="ngForm" novalidate>
+  <h1>New Fighter</h1>
+  {{fighter | json}}
+  <div class="form-group">
+    <label for="">Fighter Name</label>
+    <input required id="name" type="text" class="form-control" name="name" [(ngModel)]="fighter.name" #name="ngModel">
+  </div>
+  <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+    Please specify the fighter name
+  </div>
+    <div class="form-group">
+      <label for="">Power Level</label>
+      <input required id="power" type="text" class="form-control" name="power" [(ngModel)]="fighter.power" #power="ngModel">
+    </div>
+    <div class="alert alert-danger" *ngIf="power.touched && power.invalid">
+      Please specify the fighter power
+    </div>
+    <div class="form-group">
+      <label for="">Speed</label>
+      <input required id="speed" type="text" class="form-control" name="speed" [(ngModel)]="fighter.speed" #speed="ngModel">
+    </div>
+    <div class="alert alert-danger" *ngIf="power.touched && power.invalid">
+      Please specify the fighter speed
+    </div>
+</form>

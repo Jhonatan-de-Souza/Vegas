@@ -45,18 +45,20 @@
   </div>
   <div class="form-group">
     <label for="contactPhone">Phone</label>
-    <input required id="contactPhone" type="text" class="form-control" name="contactPhone" [(ngModel)]="vehicle.contact.phone" #contactPhone="ngModel">
+    <input required id="contactPhone" type="text" class="form-control" name="contactPhone" [(ngModel)]="vehicle.contact.phone"
+      #contactPhone="ngModel">
     <div class="alert alert-danger" *ngIf="contactPhone.touched && contactPhone.invalid">
       Please specify the contact phone.
     </div>
   </div>
   <div class="form-group">
     <label for="contactEmail">Email</label>
-    <input required id="contactEmail" type="text" class="form-control" name="contactEmail" [(ngModel)]="vehicle.contact.email" #contactEmail="ngModel">
+    <input required id="contactEmail" type="text" class="form-control" name="contactEmail" [(ngModel)]="vehicle.contact.email"
+      #contactEmail="ngModel">
     <div class="alert alert-danger" *ngIf="contactEmail.touched && contactEmail.invalid">
       Please specify the contact Email.
     </div>
   </div>
   <button class="btn btn-primary" [disabled]="!f.valid">Save</button>
-  <button *ngIf="vehicle.id" type="button" class="btn btn-danger" [disabled]="!f.valid" (click)="delete()"  >Delete</button>
+  <button *ngIf="vehicle.id" type="button" class="btn btn-danger" [disabled]="!f.valid" (click)="delete()">Delete</button>
 </form>

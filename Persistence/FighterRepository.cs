@@ -15,6 +15,11 @@ namespace Vegas.Persistence
             this.context = context;
         }
 
+        public async Task<Fighter> GetFighterByIdAsync(int id)
+        {
+            return await context.Fighters.Where(x=>x.Id == id).FirstOrDefaultAsync();
+        }
+
         async Task<IEnumerable<Fighter>> IFighterRepository.GetFighterAsync()
         {
             return await context.Fighters.ToListAsync();

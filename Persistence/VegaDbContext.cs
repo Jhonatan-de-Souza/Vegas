@@ -10,6 +10,7 @@ namespace Vega.Persistence
        public DbSet<Features> Features {get;set;}
        public DbSet<Vehicle> Vehicles { get; set; }
        public DbSet<Fighter> Fighters { get; set; }
+       public DbSet<Skills> Skills { get; set; }
         public VegaDbContext(DbContextOptions <VegaDbContext> options)
         :base(options)
         {}

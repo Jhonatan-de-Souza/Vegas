@@ -1,12 +1,12 @@
 import * as _ from "underscore";
 import { isDevMode } from "@angular/core";
-import { FetchDataComponent } from "./../fetchdata/fetchdata.component";
 import { VehicleService } from "./../../services/vehicle.service";
 import { Component, OnInit } from "@angular/core";
 import { ToastyService } from "ng2-toasty";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/observable/forkJoin";
+
 import { SaveVehicle, Vehicle } from "../../models/vehicle";
 
 @Component({
@@ -44,6 +44,7 @@ export class VehicleFormComponent implements OnInit {
   ngOnInit() {
     /* Here we are setting up our data sources */
     var sources = [
+      
       this.vehicleService.getMakes(),
       this.vehicleService.getFeatures()
     ];
@@ -65,6 +66,7 @@ export class VehicleFormComponent implements OnInit {
     );
   }
   private populateModels() {
+    
     /*Binding secondary actions (dropdown in this case) based on change event*/
     var selectedMake = this.makes.find(m => m.id == this.vehicle.makeId);
     this.models = selectedMake.models;
@@ -80,6 +82,7 @@ export class VehicleFormComponent implements OnInit {
     this.vehicle.features = _.pluck(v.features, "id");
   }
   onMakeChange() {
+  this.populateModels();
     delete this.vehicle.modelId; /* removing previously selected item */
   }
   onFeatureToggle(featureId, $event) {
@@ -106,7 +109,15 @@ export class VehicleFormComponent implements OnInit {
         });
       });
     } else {
-      this.vehicleService.create(this.vehicle).subscribe(x => console.log(x));
+      this.vehicleService.create(this.vehicle).subscribe(x => 
+      this.toastyService.success({
+          title: "Success",
+          msg: "The vehicle was sucessfully created.",
+          theme: "bootstrap",
+          showClose: true,
+          timeout: 5000
+        })
+      );
     }
   }
   delete() {
