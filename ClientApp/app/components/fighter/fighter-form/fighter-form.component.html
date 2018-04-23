@@ -22,4 +22,13 @@
     <div class="alert alert-danger" *ngIf="power.touched && power.invalid">
       Please specify the fighter speed
     </div>
+
+    <p>Is Final Form?</p>
+    <label for="isfinalform" class="radio-inline">
+      <input type="radio" [value]="true" id="isfinalform" name="isFinalForm" [(ngModel)]="fighter.isFinalForm">Yes
+    </label>
+    <label for="isnotfinalform" class="radio-inline">
+      <input type="radio" [value]="false" id="isnotfinalform" name="isRegistered" [(ngModel)]="fighter.isFinalForm"> No
+    </label>
+    <button (click)="onSubmit()">Save new Fighter</button>
 </form>

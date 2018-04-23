@@ -11,9 +11,10 @@ using Vega.Persistence;
 namespace Vega.Migrations
 {
     [DbContext(typeof(VegaDbContext))]
-    partial class VegaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180423174713_AddingMoreItensToFighterTable")]
+    partial class AddingMoreItensToFighterTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,21 +127,6 @@ namespace Vega.Migrations
                     b.ToTable("Fighters");
                 });
 
-            modelBuilder.Entity("Vegas.Core.Models.FighterSkill", b =>
-                {
-                    b.Property<int>("FighterId");
-
-                    b.Property<int>("SkillId");
-
-                    b.Property<int?>("SkillsId");
-
-                    b.HasKey("FighterId", "SkillId");
-
-                    b.HasIndex("SkillsId");
-
-                    b.ToTable("FighterSkills");
-                });
-
             modelBuilder.Entity("Vegas.Core.Models.Skills", b =>
                 {
                     b.Property<int>("Id")
@@ -150,9 +136,13 @@ namespace Vega.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<int?>("FighterId");
+
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FighterId");
 
                     b.ToTable("Skills");
                 });
@@ -186,16 +176,11 @@ namespace Vega.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Vegas.Core.Models.FighterSkill", b =>
+            modelBuilder.Entity("Vegas.Core.Models.Skills", b =>
                 {
-                    b.HasOne("Vegas.Core.Models.Fighter", "Fighter")
+                    b.HasOne("Vegas.Core.Models.Fighter")
                         .WithMany("Skills")
-                        .HasForeignKey("FighterId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Vegas.Core.Models.Skills", "Skills")
-                        .WithMany()
-                        .HasForeignKey("SkillsId");
+                        .HasForeignKey("FighterId");
                 });
 #pragma warning restore 612, 618
         }

@@ -12,10 +12,10 @@ namespace Vegas.Core.Models
         public int Speed { get; set; }
         public bool IsFinalForm { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public ICollection<Skills> Skills { get; set; }
+        public ICollection<FighterSkill> Skills { get; set; }
         public Fighter()
         {
-            Skills  = new Collection<Skills>();
+            Skills  = new Collection<FighterSkill>();
         }
 
 

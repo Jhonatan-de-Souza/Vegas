@@ -15,8 +15,9 @@ namespace Vega.Persistence
         :base(options)
         {}
         protected override void OnModelCreating(ModelBuilder modelBuilder){
-            //This is similar to fluentAPI   
+            //This is similar to fluentAPI    in order to create a composite key
             modelBuilder.Entity<VehicleFeature>().HasKey(vf => new { vf.VehicleId, vf.FeatureId }); 
+            modelBuilder.Entity<FighterSkill>().HasKey(ck => new {ck.FighterId,ck.SkillId});
         }
     }
 }
