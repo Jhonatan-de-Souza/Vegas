@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Vegas.Core.Models
+namespace Vega.Core.Models
 {
     public class Fighter
     {

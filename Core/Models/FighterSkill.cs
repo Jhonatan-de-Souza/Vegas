@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Vegas.Core.Models
+namespace Vega.Core.Models
 {
     [Table("FighterSkills")]
     public class FighterSkill

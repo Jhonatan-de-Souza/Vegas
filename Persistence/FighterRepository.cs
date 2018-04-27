@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Vega.Persistence;
-using Vegas.Core.Models;
+using Vega.Core;
+using Vega.Core.Models;
 
-namespace Vegas.Persistence
+namespace Vega.Persistence
 {
     public class FighterRepository : IFighterRepository
     {
@@ -15,14 +15,43 @@ namespace Vegas.Persistence
             this.context = context;
         }
 
+        public void Add(Fighter fighter)
+        {
+            context
+                .Add(fighter);
+        }
+        
+
         public async Task<Fighter> GetFighterByIdAsync(int id)
         {
-            return await context.Fighters.Where(x=>x.Id == id).FirstOrDefaultAsync();
+            var testResults = await context.Fighters.ToListAsync(); // remove later
+            var testResults2 = await context.Fighters
+            .Include(x=>x.Skills)
+                .ThenInclude(xf => xf.Skills)
+                .Where(filter => filter.Id == id)
+                .FirstOrDefaultAsync();
+            
+            var results = await context.Fighters
+                .Where(x=>x.Id == id)
+                .Include(x=>x.Skills)
+                .FirstOrDefaultAsync();
+            return results;
         }
 
-        async Task<IEnumerable<Fighter>> IFighterRepository.GetFighterAsync()
+        public  async Task<IEnumerable<Fighter>> GetFighterAsync()
         {
-            return await context.Fighters.ToListAsync();
+            var test = await context.Fighters.ToListAsync();
+            var results =  await context.Fighters
+                .Include(v => v.Skills)
+                    .ThenInclude(vf => vf.Skills)
+                .ToListAsync();
+            return results;
+        }
+
+        public async Task<IEnumerable<Skills>> GetSkillsAsync()
+        {
+            return await context.Skills
+                .ToListAsync();
         }
     }
 }

@@ -1,13 +1,15 @@
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Vega.Core;
-using Vegas.Core.Models;
 using Vega.Controllers.Resources;
+using Vega.Core;
+using Vega.Core.Models;
 
-namespace Vegas.Controllers
+namespace Vega.Controllers
 {
-    [Route("/api/fighters")]
+    //this makes sure that the name of the controller becomes the route for the API
+    [Route("/api/[controller]")]
     public class FightersController : Controller
     {
         private readonly IUnitOfWork unitOfWork;
@@ -21,10 +23,11 @@ namespace Vegas.Controllers
         }
         //APIs
         [HttpGet]
-        public IActionResult GetFighters()
+        public async Task<IEnumerable<FighterResource>> GetFighters()
         {
-            var fighters = repository.GetFighterAsync();
-            return Ok(fighters);
+            var fighters = await repository.GetFighterAsync();
+            return mapper.Map<IEnumerable<Fighter>,IEnumerable<FighterResource>>(fighters);
+            
         }
 
         [HttpGet("{id}")]
@@ -33,10 +36,27 @@ namespace Vegas.Controllers
             var fighter = repository.GetFighterByIdAsync(id);
             return Ok(fighter);
         }
+        [HttpGet("skills")] 
+        public async Task<IEnumerable<Skills>> GetSkills(){
+            var skills = await repository.GetSkillsAsync();
+            return skills;
+        }
         [HttpPost]
-        public IActionResult CreateFighterAsync(FighterResource fighterResource){
-            //implement fighter Creation here             
-            return Ok(fighterResource);
+        public async Task<IActionResult> CreateFighterAsync([FromBody]SaveFighterResource fighterResource){
+            //implement fighter Creation here
+            if(!ModelState.IsValid)
+                return BadRequest();
+
+            var fighter = mapper.Map<SaveFighterResource,Fighter>(fighterResource);
+
+            repository.Add(fighter);
+            await unitOfWork.CompleteAsync();
+
+            fighter = await repository.GetFighterByIdAsync(fighter.Id);
+            
+            var result = mapper.Map<Fighter,FighterResource>(fighter);
+
+            return Ok(result);
         }
     }
 }

@@ -31,6 +31,7 @@ namespace Vega.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
             var vehicle = mapper.Map<SaveVehicleResource, Vehicle>(vehicleResource);
             vehicle.LastUpdate = DateTime.Now;
 
@@ -41,6 +42,7 @@ namespace Vega.Controllers
 
 
             var result = mapper.Map<Vehicle, VehicleResource>(vehicle);
+            
             return Ok(result);
         }
         [HttpPut("{id}")]
@@ -87,6 +89,7 @@ namespace Vega.Controllers
             }
 
             var vehicleResource = mapper.Map<Vehicle, VehicleResource>(vehicle);
+            
             return Ok(vehicleResource);
         }
         [HttpGet]

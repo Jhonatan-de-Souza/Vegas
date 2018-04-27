@@ -1,5 +1,8 @@
-import { fighter, skills } from './../../../models/fighter';
-import { Component, OnInit } from '@angular/core';
+import { ToastyService } from "ng2-toasty";
+import * as _ from "underscore";
+import { FighterService } from "./../../../services/fighter.service";
+import { fighter, skills } from "./../../../models/fighter";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-fighter-form",
@@ -7,20 +10,60 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ["./fighter-form.component.css"]
 })
 export class FighterFormComponent implements OnInit {
+  skills: skills[];
   fighter: fighter = {
     id: 0,
     name: "",
     power: 0,
     speed: 0,
-    DateOfBirth:new Date(),
-    isFinalForm:false,
+    DateOfBirth: new Date(),
+    isFinalForm: false,
     skills: []
   };
-  constructor() {}
+  constructor(
+    private fighterService: FighterService,
+    private toastyService: ToastyService
+  ) {}
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    //NOT CURRENTLY WORKING FIX THE API RELATED TO THIS CALL FIRST IN ORDER TO MAKE IT WORK
+    /* Here i populate the models by projecting the results of the service into the local model*/
+    this.fighterService
+      .getSkills()
+      .subscribe(data => ((this.skills = data)));
+  }
+  /* CODE BELOW NOT WORKING ATM */
+  onFeatureToggle(skillId, $event) {
+    /* Using javascript to obtain the selected checkbox */
+    if ($event.target.checked)
+      /* pushing(adding) the selected item to the angular object */
+      this.fighter.skills.push(skillId);
+    else {
+      var index = this.fighter.skills.indexOf(skillId);
+      /*removing the item at the current index*/
+      this.fighter.skills.splice(index, 1);
+    }
+  }
+  //Code for editing a fighter below (untestest)
+  private setFighter(f: fighter) {
+    (this.fighter.id = f.id),
+      (this.fighter.DateOfBirth = f.DateOfBirth),
+      (this.fighter.isFinalForm = f.isFinalForm),
+      (this.fighter.name = f.name),
+      (this.fighter.power = f.power),
+      (this.fighter.skills = _.pluck(f.skills, "id"));
+  }
   onSubmit() {
-    console.log("Fighter Created");
+    this.fighterService.create(this.fighter).subscribe(x =>
+      console.log(x)
+      
+      // this.toastyService.success({
+      //   title: "Success",
+      //   msg: "The fighter was sucessfully created.",
+      //   theme: "bootstrap",
+      //   showClose: true,
+      //   timeout: 5000
+      // })
+    );
   }
 }

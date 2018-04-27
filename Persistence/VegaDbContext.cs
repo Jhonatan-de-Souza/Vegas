@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Vega.Core.Models;
-using Vegas.Core.Models;
 
 namespace Vega.Persistence
 {
@@ -16,8 +15,13 @@ namespace Vega.Persistence
         {}
         protected override void OnModelCreating(ModelBuilder modelBuilder){
             //This is similar to fluentAPI    in order to create a composite key
-            modelBuilder.Entity<VehicleFeature>().HasKey(vf => new { vf.VehicleId, vf.FeatureId }); 
-            modelBuilder.Entity<FighterSkill>().HasKey(ck => new {ck.FighterId,ck.SkillId});
+            //this is ceating a problem when it creates an extra table
+            modelBuilder.Entity<VehicleFeature>().HasKey(table => new { table.VehicleId, table.FeatureId }); 
+            modelBuilder.Entity<FighterSkill>().HasKey(table => new {table.FighterId,table.SkillId});
+
+            
+
+ 
         }
     }
 }

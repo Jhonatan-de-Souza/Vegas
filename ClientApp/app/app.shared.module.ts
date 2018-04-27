@@ -1,3 +1,4 @@
+import { FighterService } from './services/fighter.service';
 import { FighterFormComponent } from './components/fighter/fighter-form/fighter-form.component';
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 import * as Raven from 'raven-js';
@@ -45,7 +46,8 @@ import { VehicleService } from './services/vehicle.service';
   ],
   providers: [
     { provide: ErrorHandler, useClass: AppErrorHandler },
-    VehicleService
+    VehicleService,
+    FighterService
   ]
 })
 export class AppModuleShared {}

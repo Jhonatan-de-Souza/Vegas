@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.Rider2017.3/system/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_Vegas.-1990591398.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p=".angular-cli.json" t="Include" />
+      <e p=".gitignore" t="Include" />
+      <e p="ClientApp" t="Include">
+        <e p="app" t="Include">
+          <e p="app.browser.module.ts" t="Include" />
+          <e p="app.server.module.ts" t="Include" />
+          <e p="app.shared.module.ts" t="Include" />
+          <e p="components" t="Include">
+            <e p="app" t="Include">
+              <e p="app.component.css" t="Include" />
+              <e p="app.component.html" t="Include" />
+              <e p="app.component.ts" t="Include" />
+              <e p="app.error-handle.ts" t="Include" />
+            </e>
+            <e p="fighter" t="Include">
+              <e p="fighter-form" t="Include">
+                <e p="fighter-form.component.css" t="Include" />
+                <e p="fighter-form.component.html" t="Include" />
+                <e p="fighter-form.component.ts" t="Include" />
+              </e>
+            </e>
+            <e p="home" t="Include">
+              <e p="home.component.html" t="Include" />
+              <e p="home.component.ts" t="Include" />
+            </e>
+            <e p="navmenu" t="Include">
+              <e p="navmenu.component.css" t="Include" />
+              <e p="navmenu.component.html" t="Include" />
+              <e p="navmenu.component.ts" t="Include" />
+            </e>
+            <e p="vehicle-form" t="Include">
+              <e p="vehicle-form.component.css" t="Include" />
+              <e p="vehicle-form.component.html" t="Include" />
+              <e p="vehicle-form.component.ts" t="Include" />
+            </e>
+            <e p="vehicle-list" t="Include">
+              <e p="vehicle-list.component.html" t="Include" />
+              <e p="vehicle-list.component.ts" t="Include" />
+            </e>
+          </e>
+          <e p="models" t="Include">
+            <e p="fighter.ts" t="Include" />
+            <e p="vehicle.ts" t="Include" />
+          </e>
+          <e p="services" t="Include">
+            <e p="fighter.service.ts" t="Include" />
+            <e p="vehicle.service.ts" t="Include" />
+          </e>
+        </e>
+        <e p="boot.browser.ts" t="Include" />
+        <e p="boot.server.ts" t="Include" />
+        <e p="dist" t="Include">
+          <e p="89889688147bd7575d6327160d64e760.svg" t="Include" />
+          <e p="main-server.js" t="Include" />
+          <e p="vendor.js" t="Include" />
+        </e>
+        <e p="test" t="Include">
+          <e p="boot-tests.ts" t="Include" />
+          <e p="karma.conf.js" t="Include" />
+        </e>
+      </e>
+      <e p="Controllers" t="Include">
+        <e p="FeaturesController.cs" t="Include" />
+        <e p="FightersController.cs" t="Include" />
+        <e p="HomeController.cs" t="Include" />
+        <e p="MakesController.cs" t="Include" />
+        <e p="Resources" t="Include">
+          <e p="ContactResource.cs" t="Include" />
+          <e p="FighterResource.cs" t="Include" />
+          <e p="KeyValuePairResource.cs" t="Include" />
+          <e p="MakeResource.cs" t="Include" />
+          <e p="SaveFighterResource.cs" t="Include" />
+          <e p="SaveVehicleResource.cs" t="Include" />
+          <e p="SkillsResource.cs" t="Include" />
+          <e p="VehicleResource.cs" t="Include" />
+        </e>
+        <e p="SampleDataController.cs" t="Include" />
+        <e p="VehiclesController.cs" t="Include" />
+      </e>
+      <e p="Core" t="Include">
+        <e p="IFighterRepository.cs" t="Include" />
+        <e p="IUnitOfWork.cs" t="Include" />
+        <e p="IVehicleRepository.cs" t="Include" />
+        <e p="Models" t="Include">
+          <e p="Features.cs" t="Include" />
+          <e p="Fighter.cs" t="Include" />
+          <e p="FighterSkill.cs" t="Include" />
+          <e p="Make.cs" t="Include" />
+          <e p="Model.cs" t="Include" />
+          <e p="Skills.cs" t="Include" />
+          <e p="Vehicle.cs" t="Include" />
+          <e p="VehicleFeature.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Mapping" t="Include">
+        <e p="MappingProfile.cs" t="Include" />
+      </e>
+      <e p="Migrations" t="Include">
+        <e p="20180409185617_InitialModel.Designer.cs" t="Include" />
+        <e p="20180409185617_InitialModel.cs" t="Include" />
+        <e p="20180409202153_initialOne.Designer.cs" t="Include" />
+        <e p="20180409202153_initialOne.cs" t="Include" />
+        <e p="20180409205744_AddedConstraintsToMakeAndModelsTable.Designer.cs" t="Include" />
+        <e p="20180409205744_AddedConstraintsToMakeAndModelsTable.cs" t="Include" />
+        <e p="20180410141744_testseed.Designer.cs" t="Include" />
+        <e p="20180410141744_testseed.cs" t="Include" />
+        <e p="20180410174739_AddedFeaturesTable.Designer.cs" t="Include" />
+        <e p="20180410174739_AddedFeaturesTable.cs" t="Include" />
+        <e p="20180410174834_SeedFeaturesTable.Designer.cs" t="Include" />
+        <e p="20180410174834_SeedFeaturesTable.cs" t="Include" />
+        <e p="20180412185605_AddVehicle.Designer.cs" t="Include" />
+        <e p="20180412185605_AddVehicle.cs" t="Include" />
+        <e p="20180420143654_AddedFighterTable.Designer.cs" t="Include" />
+        <e p="20180420143654_AddedFighterTable.cs" t="Include" />
+        <e p="20180420145842_PopulationFighterTable.Designer.cs" t="Include" />
+        <e p="20180420145842_PopulationFighterTable.cs" t="Include" />
+        <e p="20180423174713_AddingMoreItensToFighterTable.Designer.cs" t="Include" />
+        <e p="20180423174713_AddingMoreItensToFighterTable.cs" t="Include" />
+        <e p="20180423180052_AddedFighterSkillsTable.Designer.cs" t="Include" />
+        <e p="20180423180052_AddedFighterSkillsTable.cs" t="Include" />
+        <e p="20180423182217_populatingSkillsTable.Designer.cs" t="Include" />
+        <e p="20180423182217_populatingSkillsTable.cs" t="Include" />
+        <e p="20180425203057_NukeDataBase.Designer.cs" t="Include" />
+        <e p="20180425203057_NukeDataBase.cs" t="Include" />
+        <e p="20180427112345_Re_Create The db.Designer.cs" t="Include" />
+        <e p="20180427112345_Re_Create The db.cs" t="Include" />
+        <e p="VegaDbContextModelSnapshot.cs" t="Include" />
+      </e>
+      <e p="Persistence" t="Include">
+        <e p="FighterRepository.cs" t="Include" />
+        <e p="UnitOfWork.cs" t="Include" />
+        <e p="VegaDbContext.cs" t="Include" />
+        <e p="VehicleRepository.cs" t="Include" />
+      </e>
+      <e p="Program.cs" t="Include" />
+      <e p="README.md" t="Include" />
+      <e p="Startup.cs" t="Include" />
+      <e p="Vega.csproj" t="IncludeRecursive" />
+      <e p="Vegas.sln" t="IncludeFlat" />
+      <e p="Views" t="Include">
+        <e p="Home" t="Include">
+          <e p="Index.cshtml" t="Include" />
+        </e>
+        <e p="Shared" t="Include">
+          <e p="Error.cshtml" t="Include" />
+          <e p="_Layout.cshtml" t="Include" />
+        </e>
+        <e p="_ViewImports.cshtml" t="Include" />
+        <e p="_ViewStart.cshtml" t="Include" />
+      </e>
+      <e p="appsettings.Development.json" t="Include" />
+      <e p="appsettings.json" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="npm-shrinkwrap.json" t="Include" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp2.0" t="Include">
+            <e p="Vega.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="package.json" t="Include" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="tsconfig.json" t="Include" />
+      <e p="webpack.config.js" t="Include" />
+      <e p="webpack.config.vendor.js" t="Include" />
+      <e p="wwwroot" t="Include">
+        <e p="dist" t="Include">
+          <e p="89889688147bd7575d6327160d64e760.svg" t="Include" />
+          <e p="main-client.js" t="Include" />
+          <e p="main-client.js.map" t="Include" />
+          <e p="vendor-manifest.json" t="Include" />
+          <e p="vendor.css" t="Include" />
+          <e p="vendor.js" t="Include" />
+        </e>
+        <e p="favicon.ico" t="Include" />
+      </e>
+    </e>
+  </component>
+</project>

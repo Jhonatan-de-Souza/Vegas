@@ -11,8 +11,7 @@ using Vega.Persistence;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using Vega.Core;
-using Vegas.Persistence;
-using Vegas.Core.Models;
+//using Vegas.Persistence;
 
 namespace Vega
 {
