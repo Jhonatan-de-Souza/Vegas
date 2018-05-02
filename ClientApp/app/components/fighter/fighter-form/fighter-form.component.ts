@@ -32,7 +32,6 @@ export class FighterFormComponent implements OnInit {
       .getSkills()
       .subscribe(data => ((this.skills = data)));
   }
-  /* CODE BELOW NOT WORKING ATM */
   onFeatureToggle(skillId, $event) {
     /* Using javascript to obtain the selected checkbox */
     if ($event.target.checked)
@@ -45,18 +44,17 @@ export class FighterFormComponent implements OnInit {
     }
   }
   //Code for editing a fighter below (untestest)
-  private setFighter(f: fighter) {
-    (this.fighter.id = f.id),
-      (this.fighter.DateOfBirth = f.DateOfBirth),
-      (this.fighter.isFinalForm = f.isFinalForm),
-      (this.fighter.name = f.name),
-      (this.fighter.power = f.power),
-      (this.fighter.skills = _.pluck(f.skills, "id"));
-  }
+  // private setFighter(f: fighter) {
+  //   (this.fighter.id = f.id),
+  //     (this.fighter.DateOfBirth = f.DateOfBirth),
+  //     (this.fighter.isFinalForm = f.isFinalForm),
+  //     (this.fighter.name = f.name),
+  //     (this.fighter.power = f.power),
+  //     (this.fighter.skills = _.pluck(f.skills, "id"));
+  // }
   onSubmit() {
     this.fighterService.create(this.fighter).subscribe(x =>
-      console.log(x)
-      
+     alert(x) 
       // this.toastyService.success({
       //   title: "Success",
       //   msg: "The fighter was sucessfully created.",

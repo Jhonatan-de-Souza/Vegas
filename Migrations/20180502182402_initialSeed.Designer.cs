@@ -11,8 +11,8 @@ using Vega.Persistence;
 namespace Vega.Migrations
 {
     [DbContext(typeof(VegaDbContext))]
-    [Migration("20180423180052_AddedFighterSkillsTable")]
-    partial class AddedFighterSkillsTable
+    [Migration("20180502182402_initialSeed")]
+    partial class initialSeed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,6 +31,39 @@ namespace Vega.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Features");
+                });
+
+            modelBuilder.Entity("Vega.Core.Models.Fighter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("DateOfBirth");
+
+                    b.Property<bool>("IsFinalForm");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("Power");
+
+                    b.Property<int>("Speed");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Fighters");
+                });
+
+            modelBuilder.Entity("Vega.Core.Models.FighterSkill", b =>
+                {
+                    b.Property<int>("FighterId");
+
+                    b.Property<int>("SkillId");
+
+                    b.HasKey("FighterId", "SkillId");
+
+                    b.HasIndex("SkillId");
+
+                    b.ToTable("FighterSkills");
                 });
 
             modelBuilder.Entity("Vega.Core.Models.Make", b =>
@@ -63,6 +96,22 @@ namespace Vega.Migrations
                     b.HasIndex("MakeId");
 
                     b.ToTable("Model");
+                });
+
+            modelBuilder.Entity("Vega.Core.Models.Skill", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AttackRange");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Skills");
                 });
 
             modelBuilder.Entity("Vega.Core.Models.Vehicle", b =>
@@ -107,55 +156,17 @@ namespace Vega.Migrations
                     b.ToTable("VehicleFeatures");
                 });
 
-            modelBuilder.Entity("Vegas.Core.Models.Fighter", b =>
+            modelBuilder.Entity("Vega.Core.Models.FighterSkill", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.HasOne("Vega.Core.Models.Fighter", "Fighter")
+                        .WithMany("Skills")
+                        .HasForeignKey("FighterId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
-                    b.Property<DateTime>("DateOfBirth");
-
-                    b.Property<bool>("IsFinalForm");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int>("Power");
-
-                    b.Property<int>("Speed");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Fighters");
-                });
-
-            modelBuilder.Entity("Vegas.Core.Models.FighterSkill", b =>
-                {
-                    b.Property<int>("FighterId");
-
-                    b.Property<int>("SkillId");
-
-                    b.Property<int?>("SkillsId");
-
-                    b.HasKey("FighterId", "SkillId");
-
-                    b.HasIndex("SkillsId");
-
-                    b.ToTable("FighterSkills");
-                });
-
-            modelBuilder.Entity("Vegas.Core.Models.Skills", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("AttackRange");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Skills");
+                    b.HasOne("Vega.Core.Models.Skill", "Skill")
+                        .WithMany()
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Vega.Core.Models.Model", b =>
@@ -185,18 +196,6 @@ namespace Vega.Migrations
                         .WithMany("Features")
                         .HasForeignKey("VehicleId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Vegas.Core.Models.FighterSkill", b =>
-                {
-                    b.HasOne("Vegas.Core.Models.Fighter", "Fighter")
-                        .WithMany("Skills")
-                        .HasForeignKey("FighterId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Vegas.Core.Models.Skills", "Skills")
-                        .WithMany()
-                        .HasForeignKey("SkillsId");
                 });
 #pragma warning restore 612, 618
         }

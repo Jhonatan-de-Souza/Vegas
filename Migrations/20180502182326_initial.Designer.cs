@@ -11,8 +11,8 @@ using Vega.Persistence;
 namespace Vega.Migrations
 {
     [DbContext(typeof(VegaDbContext))]
-    [Migration("20180427195630_RenamedSkillColumn")]
-    partial class RenamedSkillColumn
+    [Migration("20180502182326_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -5,36 +5,9 @@ using System.Collections.Generic;
 
 namespace Vega.Migrations
 {
-    public partial class NukeDataBase : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropTable(
-                name: "FighterSkills");
-
-            migrationBuilder.DropTable(
-                name: "VehicleFeatures");
-
-            migrationBuilder.DropTable(
-                name: "Fighters");
-
-            migrationBuilder.DropTable(
-                name: "Skills");
-
-            migrationBuilder.DropTable(
-                name: "Features");
-
-            migrationBuilder.DropTable(
-                name: "Vehicles");
-
-            migrationBuilder.DropTable(
-                name: "Model");
-
-            migrationBuilder.DropTable(
-                name: "Makes");
-        }
-
-        protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
                 name: "Features",
@@ -119,8 +92,7 @@ namespace Vega.Migrations
                 columns: table => new
                 {
                     FighterId = table.Column<int>(nullable: false),
-                    SkillId = table.Column<int>(nullable: false),
-                    SkillsId = table.Column<int>(nullable: true)
+                    SkillId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -132,11 +104,11 @@ namespace Vega.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_FighterSkills_Skills_SkillsId",
-                        column: x => x.SkillsId,
+                        name: "FK_FighterSkills_Skills_SkillId",
+                        column: x => x.SkillId,
                         principalTable: "Skills",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -188,9 +160,9 @@ namespace Vega.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_FighterSkills_SkillsId",
+                name: "IX_FighterSkills_SkillId",
                 table: "FighterSkills",
-                column: "SkillsId");
+                column: "SkillId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Model_MakeId",
@@ -206,6 +178,33 @@ namespace Vega.Migrations
                 name: "IX_Vehicles_ModelId",
                 table: "Vehicles",
                 column: "ModelId");
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "FighterSkills");
+
+            migrationBuilder.DropTable(
+                name: "VehicleFeatures");
+
+            migrationBuilder.DropTable(
+                name: "Fighters");
+
+            migrationBuilder.DropTable(
+                name: "Skills");
+
+            migrationBuilder.DropTable(
+                name: "Features");
+
+            migrationBuilder.DropTable(
+                name: "Vehicles");
+
+            migrationBuilder.DropTable(
+                name: "Model");
+
+            migrationBuilder.DropTable(
+                name: "Makes");
         }
     }
 }
