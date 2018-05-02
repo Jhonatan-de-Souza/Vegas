@@ -8,7 +8,7 @@ namespace Vega.Core
     {
         Task<IEnumerable<Fighter>> GetFighterAsync();
         Task<Fighter> GetFighterByIdAsync(int id);
-        Task<IEnumerable<Skills>> GetSkillsAsync() ;
+        Task<IEnumerable<Skill>> GetSkillsAsync() ;
         void Add(Fighter fighter);
     }
 }

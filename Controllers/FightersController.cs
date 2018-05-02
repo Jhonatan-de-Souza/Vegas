@@ -37,7 +37,7 @@ namespace Vega.Controllers
             return Ok(fighter);
         }
         [HttpGet("skills")] 
-        public async Task<IEnumerable<Skills>> GetSkills(){
+        public async Task<IEnumerable<Skill>> GetSkills(){
             var skills = await repository.GetSkillsAsync();
             return skills;
         }

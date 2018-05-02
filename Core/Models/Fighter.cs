@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Vega.Core.Models
 {
     public class Fighter
     {
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public int Power { get; set; }

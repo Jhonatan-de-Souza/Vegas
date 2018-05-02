@@ -8,6 +8,6 @@ namespace Vega.Core.Models
         public int FighterId { get; set; }
         public int SkillId { get; set; }
         public Fighter Fighter { get; set; }
-        public Skills Skills { get; set; }
+        public Skill Skill { get; set; } 
     }
 }

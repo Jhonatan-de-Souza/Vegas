@@ -27,7 +27,7 @@ namespace Vega.Persistence
             var testResults = await context.Fighters.ToListAsync(); // remove later
             var testResults2 = await context.Fighters
             .Include(x=>x.Skills)
-                .ThenInclude(xf => xf.Skills)
+                .ThenInclude(xf => xf.Skill)
                 .Where(filter => filter.Id == id)
                 .FirstOrDefaultAsync();
             
@@ -43,12 +43,12 @@ namespace Vega.Persistence
             var test = await context.Fighters.ToListAsync();
             var results =  await context.Fighters
                 .Include(v => v.Skills)
-                    .ThenInclude(vf => vf.Skills)
+                    .ThenInclude(vf => vf.Skill)
                 .ToListAsync();
             return results;
         }
 
-        public async Task<IEnumerable<Skills>> GetSkillsAsync()
+        public async Task<IEnumerable<Skill>> GetSkillsAsync()
         {
             return await context.Skills
                 .ToListAsync();
