@@ -1,4 +1,4 @@
-<form #f="ngForm" novalidate>
+<form #f="ngForm" (ngSubmit)="submit()" novalidate>
   <h1>New Fighter</h1>
   {{fighter | json}}
   <div class="form-group">
@@ -48,5 +48,5 @@
         <input type="checkbox" id="skill{{ f.id }}" (change)="onFeatureToggle(f.id,$event)" [checked]="fighter.skills.includes(f.id)">{{ f.name }}
       </label>
     </div>
-    <button (click)="onSubmit()">Save new Fighter</button>
+    <button class="btn btn-primary" >Save new Fighter</button>
 </form>

@@ -6,12 +6,11 @@ import "rxjs/add/operator/map";
 export class FighterService {
   constructor(private http: Http) {}
   getSkills() {
-    return this.http.get("/api/fighters/skills").map(res => res.json());
+    return this.http.get('/api/fighters/skills').map(res => res.json());
   }
   create(fighter){
-    debugger;
-    return this.http.post("/api/fighters",fighter)
+    console.log(fighter);
+    return this.http.post('/api/fighters',fighter)
       .map(res => res.json());
   }
-  
 }

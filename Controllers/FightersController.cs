@@ -45,7 +45,7 @@ namespace Vega.Controllers
         public async Task<IActionResult> CreateFighterAsync([FromBody]SaveFighterResource fighterResource){
             //implement fighter Creation here
             if(!ModelState.IsValid)
-                return BadRequest();
+                return BadRequest(ModelState);
 
             var fighter = mapper.Map<SaveFighterResource,Fighter>(fighterResource);
 

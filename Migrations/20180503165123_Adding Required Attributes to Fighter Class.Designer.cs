@@ -11,9 +11,10 @@ using Vega.Persistence;
 namespace Vega.Migrations
 {
     [DbContext(typeof(VegaDbContext))]
-    partial class VegaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180503165123_Adding Required Attributes to Fighter Class")]
+    partial class AddingRequiredAttributestoFighterClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

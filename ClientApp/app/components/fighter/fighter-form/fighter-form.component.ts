@@ -26,7 +26,6 @@ export class FighterFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    //NOT CURRENTLY WORKING FIX THE API RELATED TO THIS CALL FIRST IN ORDER TO MAKE IT WORK
     /* Here i populate the models by projecting the results of the service into the local model*/
     this.fighterService
       .getSkills()
@@ -43,7 +42,7 @@ export class FighterFormComponent implements OnInit {
       this.fighter.skills.splice(index, 1);
     }
   }
-  //Code for editing a fighter below (untestest)
+  // Code for editing a fighter below (untestest)
   // private setFighter(f: fighter) {
   //   (this.fighter.id = f.id),
   //     (this.fighter.DateOfBirth = f.DateOfBirth),
@@ -52,17 +51,22 @@ export class FighterFormComponent implements OnInit {
   //     (this.fighter.power = f.power),
   //     (this.fighter.skills = _.pluck(f.skills, "id"));
   // }
-  onSubmit() {
-    debugger;
-    this.fighterService.create(this.fighter).subscribe(x =>
-      console.log(x)
-      // this.toastyService.success({
-      //   title: "Success",
-      //   msg: "The fighter was sucessfully created.",
-      //   theme: "bootstrap",
-      //   showClose: true,
-      //   timeout: 5000
-      //})
+  submit() {
+    console.log("I've started the submit action")
+    this.fighterService.create(this.fighter)
+    .subscribe(
+      //Step 1, What to do in case of success
+      success =>
+      this.toastyService.success({
+        title: "Success",
+        msg: "The fighter was sucessfully created.",
+        theme: "bootstrap",
+        showClose: true,
+        timeout: 5000
+      })
+      
     );
+    console.log("I've finished the submit action")
+    
   }
 }

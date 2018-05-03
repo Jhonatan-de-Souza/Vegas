@@ -2,8 +2,6 @@ import { FighterService } from './services/fighter.service';
 import { FighterFormComponent } from './components/fighter/fighter-form/fighter-form.component';
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 import * as Raven from 'raven-js';
-import { AppErrorHandler } from './components/app/app.error-handle';
-import { NgModule, ErrorHandler } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -15,6 +13,8 @@ import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { VehicleService } from './services/vehicle.service';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { AppErrorHandler } from './app.error-handler';
 
 
  Raven.config('https://0cf186e828294786899ef521603ae5b4@sentry.io/1191660')
@@ -45,7 +45,7 @@ import { VehicleService } from './services/vehicle.service';
     ])
   ],
   providers: [
-    { provide: ErrorHandler, useClass: AppErrorHandler },
+    {  provide: ErrorHandler,useClass:AppErrorHandler},
     VehicleService,
     FighterService
   ]
