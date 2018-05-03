@@ -53,15 +53,16 @@ export class FighterFormComponent implements OnInit {
   //     (this.fighter.skills = _.pluck(f.skills, "id"));
   // }
   onSubmit() {
+    debugger;
     this.fighterService.create(this.fighter).subscribe(x =>
-     alert(x) 
+      console.log(x)
       // this.toastyService.success({
       //   title: "Success",
       //   msg: "The fighter was sucessfully created.",
       //   theme: "bootstrap",
       //   showClose: true,
       //   timeout: 5000
-      // })
+      //})
     );
   }
 }
