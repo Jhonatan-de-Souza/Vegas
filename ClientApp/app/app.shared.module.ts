@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { VehicleService } from './services/vehicle.service';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { AppErrorHandler } from './app.error-handler';
+import { FighterListComponent } from './components/fighter/fighter-list/fighter-list.component';
 
 
  Raven.config('https://0cf186e828294786899ef521603ae5b4@sentry.io/1191660')
@@ -26,7 +27,8 @@ import { AppErrorHandler } from './app.error-handler';
     HomeComponent,
     VehicleFormComponent,
     VehicleListComponent,
-    FighterFormComponent
+    FighterFormComponent,
+    FighterListComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +42,7 @@ import { AppErrorHandler } from './app.error-handler';
       { path: "vehicles", component: VehicleListComponent },
       { path: "fighters/new", component: FighterFormComponent },
       { path: "fighters/:id", component: FighterFormComponent },
-      { path: "fighters", component: FighterFormComponent },
+      { path: "fighters", component: FighterListComponent },
       { path: "home", component: HomeComponent },
       { path: "**", redirectTo: "home" }
     ])

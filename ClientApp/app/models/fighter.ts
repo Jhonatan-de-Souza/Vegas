@@ -7,7 +7,7 @@ export interface skills {
 
 }
 
-export interface fighter {
+export interface Fighter {
     id:number,
     name:string,
     power:number,

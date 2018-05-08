@@ -1,7 +1,7 @@
 import { ToastyService } from "ng2-toasty";
 import * as _ from "underscore";
 import { FighterService } from "./../../../services/fighter.service";
-import { fighter, skills, SaveFighter } from "./../../../models/fighter";
+import { Fighter, skills, SaveFighter } from "./../../../models/fighter";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs/Observable";
@@ -72,7 +72,7 @@ export class FighterFormComponent implements OnInit {
     }
   }
   //Code for editing a fighter below (untestest)
-  private setFighter(f: fighter) {
+  private setFighter(f: Fighter) {
 
     (this.fighter.id = f.id),
       // (this.fighter.DateOfBirth = f.DateOfBirth),

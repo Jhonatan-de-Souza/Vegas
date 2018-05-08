@@ -27,4 +27,8 @@ export class FighterService {
     return this.http.delete('/api/fighters/'+id)
       .map(res => res.json());
   }
+  getFighters(){
+    return this.http.get('/api/fighters')
+      .map(res => res.json());
+  }
 }

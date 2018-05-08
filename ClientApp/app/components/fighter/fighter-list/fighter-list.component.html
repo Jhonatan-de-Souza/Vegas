@@ -1,0 +1,8 @@
+<h1>This is a <title></title></h1>
+<p>This is the Paragraph</p>
+
+<div *ngFor="let f of fighters" >
+    <label for="fighters{{ f.id }}">
+      <input type="text" id="fighters{{ f.id }}"  >{{ f.name }}
+    </label>
+  </div>
