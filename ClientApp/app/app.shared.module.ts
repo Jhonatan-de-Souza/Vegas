@@ -39,6 +39,7 @@ import { AppErrorHandler } from './app.error-handler';
       { path: "vehicles/:id", component: VehicleFormComponent },
       { path: "vehicles", component: VehicleListComponent },
       { path: "fighters/new", component: FighterFormComponent },
+      { path: "fighters/:id", component: FighterFormComponent },
       { path: "fighters", component: FighterFormComponent },
       { path: "home", component: HomeComponent },
       { path: "**", redirectTo: "home" }

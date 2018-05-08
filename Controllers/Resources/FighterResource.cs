@@ -18,7 +18,7 @@ namespace Vega.Controllers.Resources
         [Required]
         public bool IsFinalForm { get; set; }
         [Required]
-        public DateTime DateOfBirth { get; set; }
+        // public DateTime DateOfBirth { get; set; }
         public ICollection<SkillsResource> Skills { get; set; }
         public FighterResource()
         {

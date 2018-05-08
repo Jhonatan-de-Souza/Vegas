@@ -27,20 +27,47 @@ namespace Vega.Controllers
         {
             var fighters = await repository.GetFighterAsync();
             return mapper.Map<IEnumerable<Fighter>,IEnumerable<FighterResource>>(fighters);
-            
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetFighter(int id)
+        public async Task<IActionResult> GetFighterAsync(int id)
         {
-            var fighter = repository.GetFighterByIdAsync(id);
-            return Ok(fighter);
+            var fighter = await repository.GetFighterByIdAsync(id);
+
+            if(fighter == null ){
+                return NotFound();
+            }
+                
+            //missing mapping from fighter to fighterresource
+            var fighterResource = mapper.Map<Fighter,FighterResource>(fighter);
+
+
+            return Ok(fighterResource);
         }
         [HttpGet("skills")] 
         public async Task<IEnumerable<Skill>> GetSkills(){
             var skills = await repository.GetSkillsAsync();
             return skills;
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateFighterAsync(int id,[FromBody] SaveFighterResource fighterResource){
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var fighter = await repository.GetFighterByIdAsync(id);
+            if(fighter == null)
+                return NotFound();
+            mapper.Map<SaveFighterResource,Fighter>(fighterResource,fighter);
+
+            //not implemented yet
+            await unitOfWork.CompleteAsync();
+
+            fighter = await repository.GetFighterByIdAsync(id);
+
+            var result = mapper.Map<Fighter,FighterResource>(fighter);
+            return Ok(result);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateFighterAsync([FromBody]SaveFighterResource fighterResource){
             //implement fighter Creation here
@@ -58,5 +85,19 @@ namespace Vega.Controllers
 
             return Ok(result);
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteVehicle(int id)
+        {
+            var fighter = await repository.GetFighterByIdAsync(id);
+            if(fighter == null)
+            {
+                return NotFound();
+            }
+            repository.Remove(fighter);
+            await unitOfWork.CompleteAsync();
+
+            return Ok(id);
+        }
+
     }
 }

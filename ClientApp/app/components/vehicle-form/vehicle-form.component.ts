@@ -31,8 +31,9 @@ export class VehicleFormComponent implements OnInit {
     }
   };
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
+    private route: ActivatedRoute, // this handle the currently activated route
+    private router: Router, // this handles redirecting to different routes
+
     private vehicleService: VehicleService,
     private toastyService: ToastyService
   ) {

@@ -14,7 +14,7 @@ export interface fighter {
     speed:number,
     skills:skills[],
     isFinalForm:boolean,
-    DateOfBirth:Date
+    // DateOfBirth:Date
 }
 
 export interface SaveFighter {
@@ -24,5 +24,5 @@ export interface SaveFighter {
   speed: number;
   skills: number[];
   isFinalForm: boolean;
-  DateOfBirth: Date;
+//   DateOfBirth: Date;
 }

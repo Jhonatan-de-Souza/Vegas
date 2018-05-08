@@ -36,7 +36,6 @@ namespace Vega.Persistence
 
         public async Task<IEnumerable<Vehicle>> GetVehiclesAsync()
         {
-            //return await context.Vehicles.ToListAsync();
             var results = await context.Vehicles
             .Include(v => v.Features)
                 .ThenInclude(vf => vf.Feature)

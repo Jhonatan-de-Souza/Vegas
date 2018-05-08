@@ -10,5 +10,6 @@ namespace Vega.Core
         Task<Fighter> GetFighterByIdAsync(int id);
         Task<IEnumerable<Skill>> GetSkillsAsync() ;
         void Add(Fighter fighter);
+        void Remove(Fighter fighter);
     }
 }

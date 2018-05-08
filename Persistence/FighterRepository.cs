@@ -33,7 +33,6 @@ namespace Vega.Persistence
 
         public  async Task<IEnumerable<Fighter>> GetFighterAsync()
         {
-            var test = await context.Fighters.ToListAsync();
             var results =  await context.Fighters
                 .Include(v => v.Skills)
                     .ThenInclude(vf => vf.Skill)
@@ -46,5 +45,13 @@ namespace Vega.Persistence
             return await context.Skills
                 .ToListAsync();
         }
+
+        
+        public void Remove (Fighter fighter)
+        {
+            context.Remove(fighter);
+        }
+
+        
     }
 }

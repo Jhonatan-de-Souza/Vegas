@@ -18,7 +18,7 @@ namespace Vega.Core.Models
         [Required]
         public bool IsFinalForm { get; set; }
         [Required]
-        public DateTime DateOfBirth { get; set; }
+        // public DateTime DateOfBirth { get; set; }
         public ICollection<FighterSkill> Skills { get; set; }
         public Fighter()
         {
