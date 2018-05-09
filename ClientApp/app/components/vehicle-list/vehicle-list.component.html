@@ -16,10 +16,11 @@
             <th>Id</th>
             <th>Make</th>
             <th>Model</th>
-            <th>Feature name</th>
             <th>Contact Name</th>
             <th>Contact Phone</th>
             <th>Contact Email</th>
+            <th>Last Update</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -31,6 +32,7 @@
             <td>{{vehicle.contact.phone}}</td>
             <td>{{vehicle.contact.email}}</td>
             <td>{{vehicle.lastUpdate}}</td>
+            <td><a [routerLink]="['/','vehicles',vehicle.id]"  class="btn btn-primary">View Vehicle</a></td>
         </tr>
     </tbody>
 </table>

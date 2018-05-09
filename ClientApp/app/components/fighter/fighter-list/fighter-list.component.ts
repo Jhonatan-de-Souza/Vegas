@@ -16,7 +16,8 @@ import { Fighter } from "./../../../models/fighter";
                 <th>Power<th>
                 <th>Speed<th>
                 <th>Is Final Form<th>
-                <th>Date Of Birth<th>                
+                <th>Date Of Birth<th>
+                <th></th>                
             </tr>
         </thead>
         <tbody>
@@ -27,6 +28,7 @@ import { Fighter } from "./../../../models/fighter";
                 <td> {{fighter.speed}}<td>
                 <td> {{fighter.isFinalForm}}<td>
                 <td> {{fighter.dateOfBirth | date:'shortDate'}}<td>
+                <td><a [routerLink]="['/','fighters',fighter.id]"  class="btn btn-primary">View Fighter</a></td>
             </tr>
         </tbody>            
     </table>
