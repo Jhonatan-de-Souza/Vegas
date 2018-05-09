@@ -1,17 +1,29 @@
-<h1>This is a <title></title></h1>
-<p>This is the Paragraph</p>
 
-<div *ngFor="let f of fighters" >
-    <label for="fighters{{ f.id }}">
-      <input type="text" id="fighters{{ f.id }}"  >{{ f.name }}
-    </label>
-  </div>
-
-  <table>
-    <tr ng-repeat="x in fighters">
-      <td>{{ x.id }}</td>
-      <td>{{ x.name }}</td>
-      <td>{{ x.power }}</td>
-      <td>{{ x.speed }}</td>
-    </tr>
-  </table>
+    <h1> Fighter Listing</h1>
+    <p>
+    <a [routerLink]="['/fighters/new']" class="btn btn-primary">New Fighter</a>
+    </p>
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th>Id<th>
+                <th>Name<th>
+                <th>Power<th>
+                <th>Speed<th>
+                <th>Is Final Form<th>
+                <th>Date Of Birth<th>
+                <th></th>                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let fighter of fighters">
+                <td> {{fighter.id}}<td>
+                <td> {{fighter.name}}<td>
+                <td> {{fighter.power}}<td>
+                <td> {{fighter.speed}}<td>
+                <td> {{fighter.isFinalForm}}<td>
+                <td> {{fighter.dateOfBirth | date:'shortDate'}}<td>
+                <td><a [routerLink]="['/','fighters',fighter.id]"  class="btn btn-primary">View Fighter</a></td>
+            </tr>
+        </tbody>            
+    </table>

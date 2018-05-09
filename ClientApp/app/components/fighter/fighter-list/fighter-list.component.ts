@@ -4,11 +4,15 @@ import { FighterService } from "../../../services/fighter.service";
 import { Fighter } from "./../../../models/fighter";
 
 @Component({
-    selector: "app-fighter-list",
-    // templateUrl: "./fighter-list.component.html"
-    template: `
+    selector: 'app-fighter-list',
+    template: 
+    `
+    
     <h1> Fighter Listing</h1>
-    <table class="table table-bordered">
+    <p>
+    <a [routerLink]="['/fighters/new']" class="btn btn-primary">New Fighter</a>
+    </p>
+    <table class="table table-bordered table-condensed">
         <thead>
             <tr>
                 <th>Id<th>
@@ -32,7 +36,9 @@ import { Fighter } from "./../../../models/fighter";
             </tr>
         </tbody>            
     </table>
+ 
     `
+    
 
 })
 export class FighterListComponent implements OnInit {
