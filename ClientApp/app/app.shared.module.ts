@@ -28,7 +28,7 @@ import { FighterListComponent } from './components/fighter/fighter-list/fighter-
     VehicleFormComponent,
     VehicleListComponent,
     FighterFormComponent,
-    FighterListComponent
+    FighterListComponent,
   ],
   imports: [
     CommonModule,

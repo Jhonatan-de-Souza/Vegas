@@ -18,7 +18,7 @@ export class FighterFormComponent implements OnInit {
     name: "",
     power: 0,
     speed: 0,
-    // DateOfBirth: new Date(),
+     DateOfBirth: "",
     isFinalForm: false,
     skills: []
   };
@@ -75,7 +75,7 @@ export class FighterFormComponent implements OnInit {
   private setFighter(f: Fighter) {
 
     (this.fighter.id = f.id),
-      // (this.fighter.DateOfBirth = f.DateOfBirth),
+      (this.fighter.DateOfBirth = f.DateOfBirth),
       (this.fighter.isFinalForm = f.isFinalForm),
       (this.fighter.name = f.name),
       (this.fighter.power = f.power),

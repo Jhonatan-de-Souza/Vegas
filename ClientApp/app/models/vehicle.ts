@@ -14,6 +14,7 @@ export interface Vehicle {
   model: KeyValuePair;
   make: KeyValuePair;
   isRegistered: boolean;
+
   features: KeyValuePair[];
   contact: Contact;
   lastUpdate: string;

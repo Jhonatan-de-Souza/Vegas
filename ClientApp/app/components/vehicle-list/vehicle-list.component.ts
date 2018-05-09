@@ -10,6 +10,7 @@ import { Vehicle } from '../../models/vehicle';
 export class VehicleListComponent implements OnInit {
     vehicles: Vehicle[];
     makes:KeyValuePair;
+    features:KeyValuePair;
 
     constructor(private vehicleService: VehicleService){}
     
@@ -18,5 +19,10 @@ export class VehicleListComponent implements OnInit {
         .subscribe(makes => this.makes = makes);
         this.vehicleService.getVehicles()
         .subscribe(vehicles => this.vehicles = vehicles)
+        this.vehicleService.getFeatures()
+        .subscribe(features => this.features = features)
+        this.vehicleService.getFeatures()
+        .subscribe(features => console.log(features))
+
     }
 }
